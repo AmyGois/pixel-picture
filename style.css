@@ -1,0 +1,39 @@
+body {
+    margin: 0 auto;
+    max-width: 800px;
+    background-color: #e8f0e7;
+}
+
+header, footer {
+    background-color: #4f6b48;
+    color: #fffae8;
+    padding: 10px;
+}
+
+section {
+    background-color: #FBF2CF;
+}
+
+/* .dark {
+    background-color: #4f6b48;
+}
+
+.color {
+    background-color: #FA7070;
+}
+
+.light {
+    background-color: #C6EBC5;
+}
+
+.background {
+    background-color: #fbf2cf;
+}
+
+.grey {
+    background-color: #e8f0e7;
+}
+
+.light-text {
+    color: #fffae8;
+} */
