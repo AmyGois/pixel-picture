@@ -12,6 +12,27 @@ header, footer {
 
 section {
     background-color: #FBF2CF;
+    min-height: 400px;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    border: #FA7070 2px solid;
+}
+
+.line {
+    display: flex;
+    width: 100%;
+}
+
+.square {
+    box-sizing: border-box;
+    border: #cecece 1px solid;
+    flex: 1 1 100%;
+    height: 100%;
+    background-color: #fff;
 }
 
 /* .dark {
