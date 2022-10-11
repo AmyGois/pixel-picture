@@ -18,6 +18,7 @@ function makeSquares(length) {
         for(o = 1; o <= length; o++) {
             let square = document.createElement('div');
             square.className = 'square';
+            square.style.backgroundColor = '#fff';
             square.addEventListener('mouseenter', colorSquareBlack);
             line.appendChild(square);
         }
@@ -80,6 +81,50 @@ function colorSquareRandom(e) {
     }
 }
 
+//F2.4 - Greyscale
+
+function colorSquareGreyscale(e) {
+    const currentColor = e.target.style.backgroundColor;
+    
+    switch(currentColor) {
+        case 'rgb(255, 255, 255)':
+            e.target.style.backgroundColor = 'rgb(230, 230, 230)';
+            break;
+        case 'rgb(230, 230, 230)':
+            e.target.style.backgroundColor = 'rgb(205, 205, 205)';
+            break;
+        case 'rgb(205, 205, 205)':
+            e.target.style.backgroundColor = 'rgb(180, 180, 180)';
+            break;
+        case 'rgb(180, 180, 180)':
+            e.target.style.backgroundColor = 'rgb(155, 155, 155)';
+            break;
+        case 'rgb(155, 155, 155)':
+            e.target.style.backgroundColor = 'rgb(130, 130, 130)';
+            break;
+        case 'rgb(130, 130, 130)':
+            e.target.style.backgroundColor = 'rgb(105, 105, 105)';
+            break;
+        case 'rgb(105, 105, 105)':
+            e.target.style.backgroundColor = 'rgb(80, 80, 80)';
+            break;
+        case 'rgb(80, 80, 80)':
+            e.target.style.backgroundColor = 'rgb(55, 55, 55)';
+            break;
+        case 'rgb(55, 55, 55)':
+            e.target.style.backgroundColor = 'rgb(30, 30, 30)';
+            break;
+        case 'rgb(30, 30, 30)':
+            e.target.style.backgroundColor = 'rgb(0, 0, 0)';
+            break;
+        case 'rgb(0, 0, 0)':
+            e.target.style.backgroundColor = 'rgb(0, 0, 0)';
+            break;
+        default:
+            e.target.style.backgroundColor = 'rgb(255, 255, 255)';
+    }
+}
+
 //
 
 /* F - Change what colour the squares get filled in with, and clear other event listeners, when button is clicked  - Requires F2*/
@@ -90,6 +135,7 @@ function changeColors(colorChoice) {
         square.removeEventListener('mouseenter', colorSquareBlack);
         square.removeEventListener('mouseenter', colorSquareWhite);
         square.removeEventListener('mouseenter', colorSquareRandom);
+        square.removeEventListener('mouseenter', colorSquareGreyscale);
     });
     
     if(colorChoice === 'black') {
@@ -98,13 +144,16 @@ function changeColors(colorChoice) {
         squares.forEach((square) =>  square.addEventListener('mouseenter', colorSquareWhite));
     } else if(colorChoice === 'random') {
         squares.forEach((square) =>  square.addEventListener('mouseenter', colorSquareRandom));
+    } else if(colorChoice === 'greyscale') {
+        squares.forEach((square) =>  square.addEventListener('mouseenter', colorSquareGreyscale));
     }
     
 }
 
-blackBtn.addEventListener('click', () => changeColors('black'));
-randomBtn.addEventListener('click', () => changeColors('random'));
-eraserBtn.addEventListener('click', () => changeColors('white'));
+blackBtn.addEventListener('click', () => changeColors('black')); //F2.1
+randomBtn.addEventListener('click', () => changeColors('random')); //F2.3
+greysBtn.addEventListener('click', () => changeColors('greyscale')); //F2.4
+eraserBtn.addEventListener('click', () => changeColors('white')); //F2.2
 
 //
 
