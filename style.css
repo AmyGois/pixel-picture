@@ -12,9 +12,26 @@ header, footer {
 
 section {
     background-color: #FBF2CF;
-    min-height: 400px;
     padding: 20px;
 }
+
+.margins {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+/* Flex-box */
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap: 5%;
+    margin: 20px 0;
+}
+
+
+/* Grid */
 
 .container {
     max-width: 600px;
@@ -34,7 +51,10 @@ section {
     height: 100%;
 }
 
-/* .dark {
+
+/* Colours
+
+.dark {
     background-color: #4f6b48;
 }
 

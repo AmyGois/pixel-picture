@@ -13,22 +13,37 @@
         <h1>Pixel Picture</h1>
         <p>Fill in the squares with your mouse to make pictures</p>
     </header>
+
     <section>
-        <div>
-            <h2>Personalise your picture!</h2>
-            <p>Choose how many squares per side you want (up to 100):</p>
-            <input type="number" class="inputField">
-            <input type="submit" value="make grid" class="inputBtn">
-            <p class="errorMessage"></p>
-            <button id="blackBtn">Black</button>
-            <button id="randomBtn">Crazy colours</button>
-            <button id="greysBtn">Greyscale</button>
-            <button id="eraserBtn">Eraser</button>
-            <button id="clearBtn">Clear picture</button>
-        </div>
-        <div class="container">
+        <div class="margins">
+            <h2>Personalise your picture</h2>
+
+            <div class="flex-container">
+                <div class="flex-item">
+                    <p>Choose the size of your grid (up to 100 squares):</p>
+                    <input type="number" class="inputField">
+                    <input type="submit" value="make grid" class="inputBtn">
+                    <p class="errorMessage"></p>
+
+                    <button id="clearBtn">Clear picture</button>
+                </div>
+                <div class="flex-item">
+                    <div>
+                        <button id="blackBtn">Black</button>
+                        <button id="eraserBtn">White</button> 
+                    </div>
+                    <div>
+                        <button id="greysBtn">Greyscale</button>
+                        <button id="randomBtn">Random colours</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container">
+            </div> 
         </div>
     </section>
+
     <footer>
         <p>Created by Amy Gois</p>
     </footer>

@@ -20,6 +20,7 @@ function makeSquares(length) {
             square.className = 'square';
             square.style.backgroundColor = '#fff';
             square.addEventListener('mouseenter', colorSquareBlack);
+            square.addEventListener('touchstart', colorSquareBlack);
             line.appendChild(square);
         }
         container.appendChild(line);
@@ -35,16 +36,19 @@ makeSquares(16);
 
 // F2.1 - Black
 function colorSquareBlack(e) {
+    e.preventDefault();
     e.target.style.backgroundColor = '#000';
 }
 
 //F2.2 - White
 function colorSquareWhite(e) {
+    e.preventDefault();
     e.target.style.backgroundColor = '#fff';
 }
 
 //F2.3 - Random colours
 function colorSquareRandom(e) {
+    e.preventDefault();
     const randomColor = Math.floor(Math.random() * 10);
 
     switch(randomColor) {
@@ -82,8 +86,8 @@ function colorSquareRandom(e) {
 }
 
 //F2.4 - Greyscale
-
 function colorSquareGreyscale(e) {
+    e.preventDefault();
     const currentColor = e.target.style.backgroundColor;
     
     switch(currentColor) {
@@ -127,25 +131,41 @@ function colorSquareGreyscale(e) {
 
 //
 
-/* F - Change what colour the squares get filled in with, and clear other event listeners, when button is clicked  - Requires F2*/
+/* F3 - Change what colour the squares get filled in with, and clear other event listeners, when button is clicked  - Requires F2*/
 
 function changeColors(colorChoice) {
     let squares = document.querySelectorAll('.square');
     squares.forEach((square) => {
         square.removeEventListener('mouseenter', colorSquareBlack);
+        square.removeEventListener('touchstart', colorSquareBlack);
         square.removeEventListener('mouseenter', colorSquareWhite);
+        square.removeEventListener('touchstart', colorSquareWhite);
         square.removeEventListener('mouseenter', colorSquareRandom);
+        square.removeEventListener('touchstart', colorSquareRandom);
         square.removeEventListener('mouseenter', colorSquareGreyscale);
+        square.removeEventListener('touchstart', colorSquareGreyscale);
     });
     
     if(colorChoice === 'black') {
-        squares.forEach((square) =>  square.addEventListener('mouseenter', colorSquareBlack));
+        squares.forEach((square) => {
+           square.addEventListener('mouseenter', colorSquareBlack);
+           square.addEventListener('touchstart', colorSquareBlack);
+        });
     } else if(colorChoice === 'white') {
-        squares.forEach((square) =>  square.addEventListener('mouseenter', colorSquareWhite));
+        squares.forEach((square) => {
+           square.addEventListener('mouseenter', colorSquareWhite);
+           square.addEventListener('touchstart', colorSquareWhite);
+        });
     } else if(colorChoice === 'random') {
-        squares.forEach((square) =>  square.addEventListener('mouseenter', colorSquareRandom));
+        squares.forEach((square) => {
+            square.addEventListener('mouseenter', colorSquareRandom);
+            square.addEventListener('touchstart', colorSquareRandom);
+        });
     } else if(colorChoice === 'greyscale') {
-        squares.forEach((square) =>  square.addEventListener('mouseenter', colorSquareGreyscale));
+        squares.forEach((square) => {
+            square.addEventListener('mouseenter', colorSquareGreyscale);
+            square.addEventListener('touchstart', colorSquareGreyscale);
+        });
     }
     
 }
@@ -157,9 +177,21 @@ eraserBtn.addEventListener('click', () => changeColors('white')); //F2.2
 
 //
 
-/* F - Make a new grid of squares according to the number chosen in the input field, and clear previous grid*/
+/* F4 - Clear grid, making all squares white again */
 
-input.addEventListener('click', changeSquares);
+function clearSquares() {
+    let squares = document.querySelectorAll('.square');
+    squares.forEach((square) => {
+        square.style.backgroundColor = '#fff';
+        square.addEventListener('mouseenter', colorSquareBlack);
+    });
+}
+
+clearBtn.addEventListener('click', clearSquares);
+
+//
+
+/* F - Make a new grid of squares according to the number chosen in the input field, and clear previous grid*/
 
 function removeSquares() {
     let lines = document.querySelectorAll('.line');
@@ -172,12 +204,19 @@ function changeSquares() {
     let errorMessage = document.querySelector('.errorMessage');
 
     if(numberOfSquares < 1 || numberOfSquares > 100) {
-        errorMessage.textContent = "That number won't do. Please choose a number between 1 and 100.";
+        errorMessage.textContent = "Please choose a number between 1 and 100.";
     } else {
         removeSquares();
         makeSquares(numberOfSquares);
         errorMessage.textContent = "";
     }
 }
+
+input.addEventListener('click', changeSquares);
+window.addEventListener('keypress', (e) => {
+    if(e.key === 'Enter') {
+        changeSquares();
+    }
+})
 
 //
