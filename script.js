@@ -20,7 +20,7 @@ function makeSquares(length) {
             square.className = 'square';
             square.style.backgroundColor = '#fff';
             square.addEventListener('mouseenter', colorSquareBlack);
-            square.addEventListener('touchstart', colorSquareBlack);
+            square.addEventListener('touchmove', colorSquareBlack);
             line.appendChild(square);
         }
         container.appendChild(line);
@@ -137,34 +137,34 @@ function changeColors(colorChoice) {
     let squares = document.querySelectorAll('.square');
     squares.forEach((square) => {
         square.removeEventListener('mouseenter', colorSquareBlack);
-        square.removeEventListener('touchstart', colorSquareBlack);
+        square.removeEventListener('touchmove', colorSquareBlack);
         square.removeEventListener('mouseenter', colorSquareWhite);
-        square.removeEventListener('touchstart', colorSquareWhite);
+        square.removeEventListener('touchmove', colorSquareWhite);
         square.removeEventListener('mouseenter', colorSquareRandom);
-        square.removeEventListener('touchstart', colorSquareRandom);
+        square.removeEventListener('touchmove', colorSquareRandom);
         square.removeEventListener('mouseenter', colorSquareGreyscale);
-        square.removeEventListener('touchstart', colorSquareGreyscale);
+        square.removeEventListener('touchmove', colorSquareGreyscale);
     });
     
     if(colorChoice === 'black') {
         squares.forEach((square) => {
            square.addEventListener('mouseenter', colorSquareBlack);
-           square.addEventListener('touchstart', colorSquareBlack);
+           square.addEventListener('touchmove', colorSquareBlack);
         });
     } else if(colorChoice === 'white') {
         squares.forEach((square) => {
            square.addEventListener('mouseenter', colorSquareWhite);
-           square.addEventListener('touchstart', colorSquareWhite);
+           square.addEventListener('touchmove', colorSquareWhite);
         });
     } else if(colorChoice === 'random') {
         squares.forEach((square) => {
             square.addEventListener('mouseenter', colorSquareRandom);
-            square.addEventListener('touchstart', colorSquareRandom);
+            square.addEventListener('touchmove', colorSquareRandom);
         });
     } else if(colorChoice === 'greyscale') {
         squares.forEach((square) => {
             square.addEventListener('mouseenter', colorSquareGreyscale);
-            square.addEventListener('touchstart', colorSquareGreyscale);
+            square.addEventListener('touchmove', colorSquareGreyscale);
         });
     }
     
